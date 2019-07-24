@@ -12,6 +12,11 @@ const app = Fastify({
     pluginTimeout: 10000
 });
 
+app.register(require('fastify-cors'), {
+    origin: true,
+    methods: ['GET', 'PUT', 'POST', 'DELETE']
+});
+
 // Register your application as a normal plugin.
 const require_esm = require("esm")(module/*, options*/);
 app.register(require_esm('./src/index.js').default);
